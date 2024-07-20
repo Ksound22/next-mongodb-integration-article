@@ -12,6 +12,7 @@ interface IAnimal extends Document {
   natural_enemy: string;
   diet: string;
   life_span: number;
+  image: string;
 }
 
 const AnimalSchema = new Schema<IAnimal>(
@@ -58,6 +59,10 @@ const AnimalSchema = new Schema<IAnimal>(
     },
     life_span: {
       type: Number,
+      required: true,
+    },
+    image: {
+      type: String,
       required: true,
     },
   },

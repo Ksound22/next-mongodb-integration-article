@@ -2,10 +2,11 @@ import Image from 'next/image';
 
 // import connectDB from '@/config/database';
 // console.log(connectDB());
-
 const fetchAnimals = async () => {
   try {
-    const res = await fetch('http://localhost:3001/api/animals');
+    const res = await fetch('http://localhost:3001/api/animals', {
+      next: { revalidate: 1000 },
+    });
     const animalRes = await res.json();
 
     if (!res.ok) {
